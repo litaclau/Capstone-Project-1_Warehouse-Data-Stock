@@ -1,4 +1,5 @@
 **CRUD Program for Warehouse Data Stock**
+
 Capstone Project Module 1 Purwadhika by Solita Claudya Aguilera
 
 Program CRUD ini dibuat untuk mendata stok gudang LTS Fashion guna mempermudah manajemen inventaris gudang. Program ini dapat digunakan oleh tim gudang, tim produksi, maupun unit lainnya yang memerlukan data inventaris gudang. Dalam Python Script ini terdapat x5 fitur menu utama sebagai berikut. 
