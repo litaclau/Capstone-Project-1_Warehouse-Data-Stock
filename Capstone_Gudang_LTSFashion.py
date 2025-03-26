@@ -90,7 +90,7 @@ def menu2_tambah_data():
             kode_barang = input("Masukkan Kode Barang: ").upper()
             if kode_barang.lower() == "batal":
                 print("\n>>>>>  Proses Dibatalkan. Kembali ke Menu Utama.  <<<<<")
-                break
+                return
 
             if any(item["kode"] == kode_barang for item in inventory):
                 print("\n>>>>>  Kode barang sudah ada! Harap masukkan kode lain.  <<<<<")
@@ -101,7 +101,7 @@ def menu2_tambah_data():
             nama_barang = input("Masukkan Nama Barang: ").capitalize()
             if nama_barang.lower() == "batal":
                 print("\n>>>>>  Proses Dibatalkan. Kembali ke Menu Utama.  <<<<<")
-                break
+                return
 
             if any(item["nama_barang"].lower() == nama_barang.lower() for item in inventory):
                 print("\n>>>>>  Nama barang sudah ada! Harap masukkan nama lain.  <<<<<")
@@ -111,13 +111,13 @@ def menu2_tambah_data():
         jenis = input("Masukkan Jenis Barang: ").capitalize()
         if jenis.lower() == "batal":
             print("\n>>>>>  Proses Dibatalkan. Kembali ke Menu Utama.  <<<<<")
-            break
+            return
 
         while True:
             jumlah_input = input("Masukkan Jumlah Stok Barang: ")
             if jumlah_input.lower() == "batal":
                 print("\n>>>>>  Proses Dibatalkan. Kembali ke Menu Utama.  <<<<<")
-                break
+                return
             if jumlah_input.isdigit() and int(jumlah_input) > 0:
                 jumlah = int(jumlah_input)
                 break
@@ -126,7 +126,7 @@ def menu2_tambah_data():
         lokasi_rak = input("Masukkan Lokasi Rak: ").upper()
         if lokasi_rak.lower() == "batal":
             print("\n>>>>>  Proses Dibatalkan. Kembali ke Menu Utama.  <<<<<")
-            break
+            return
 
         while True:
             konfirmasi = input("\nApakah Anda yakin ingin menambahkan data ini? (yes/no): ").lower()
@@ -139,7 +139,7 @@ def menu2_tambah_data():
                     "lokasi_rak": lokasi_rak
                 })
                 print(f"\n>>>>>  Barang '{nama_barang}' Berhasil Ditambahkan!  <<<<<")
-                break
+                return
             elif konfirmasi == "no":
                 print("\n>>>>>  Proses dibatalkan. Kembali ke awal input.  <<<<<")
                 break
@@ -191,10 +191,10 @@ def menu3_ubah_data():
                             data["stok"] = stok_baru
 
                         print("\n>>>>>  Data Berhasil Diperbarui!  <<<<<")
-                        break
+                        return
                     elif konfirmasi == "no":
                         print("\n>>>>>  Perubahan Dibatalkan. Kembali ke awal input.  <<<<<")
-                        break
+                        return
                     else:
                         print("\n>>>>>  Harap masukkan 'yes' atau 'no'.  <<<<<")
 
@@ -222,7 +222,7 @@ def menu4_hapus_data():
                     if konfirmasi == "yes":
                         inventory.remove(data)
                         print(f"\n>>>>>  Barang '{data['nama_barang']}' Berhasil Dihapus!  <<<<<")
-                        break  
+                        return  
                     elif konfirmasi == "no":
                         print("\n>>>>>  Penghapusan Dibatalkan. Kembali ke awal input.  <<<<<")
                         break 
@@ -265,4 +265,3 @@ while True:
     
     else:
         print("\n>>>>>  Pilihan yang Anda Masukkan Salah  <<<<<")
-
